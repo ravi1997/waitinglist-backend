@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "fdbc6238-b961-41e8-9a29-98e076baf044",
+		"name": "backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25872699"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"ravi199777@gmail.com\",\r\n    \"password\":\"Singh@1997\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/waitinglist/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"waitinglist",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create department",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMTA5NzA0MCwianRpIjoiZjc0NTM5ODYtYzRkMC00YjcwLWI5OGYtYmM0Y2QwZmVkZTAzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzAxMDk3MDQwLCJleHAiOjE3MDEwOTc5NDB9.419leajUt6tgLb-r3tvGSHxA69q50T8gUdsLPwzl2BQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Computer Facility\",\r\n    \"abbr\": \"CF\",\r\n    \"type\": \"CENTER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/waitinglist/department/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"waitinglist",
+						"department",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all department",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMTEwMDA2NywianRpIjoiZGNiNzJiNjMtNzBkYy00M2RlLTgzYmEtOWRhMzBkMzlkMTM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzAxMTAwMDY3LCJleHAiOjE3MDExMDA5Njd9.hdFCVea-3lJDwjSaHPubI6Sw_VJGAEpw4DXdCKaMBvw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/waitinglist/department/getAll",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"waitinglist",
+						"department",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
