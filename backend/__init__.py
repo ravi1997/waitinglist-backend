@@ -32,12 +32,28 @@ def create_app():
 
 
 		# Registering routes
-		from backend.routes import main_bp,auth_bp,patient_bp,department_bp,cadre_bp
+		from backend.routes import account_bp,	\
+								accountrole_bp,	\
+								auth_bp,	\
+								cadre_bp,	\
+								department_bp,	\
+								designation_bp,	\
+								main_bp,	\
+								patient_bp,	\
+								role_bp,	\
+								unit_bp,	\
+								user_bp
 	
-		app.register_blueprint(main_bp,url_prefix='/waitinglist')
+		app.register_blueprint(account_bp,url_prefix='/waitinglist/account')
+		app.register_blueprint(accountrole_bp,url_prefix='/waitinglist/accountrole')
 		app.register_blueprint(auth_bp,url_prefix='/waitinglist/auth')
-		app.register_blueprint(patient_bp,url_prefix='/waitinglist/patient')    
-		app.register_blueprint(department_bp,url_prefix='/waitinglist/department')    
 		app.register_blueprint(cadre_bp,url_prefix='/waitinglist/cadre')    
+		app.register_blueprint(department_bp,url_prefix='/waitinglist/department')    
+		app.register_blueprint(designation_bp,url_prefix='/waitinglist/designation')    
+		app.register_blueprint(main_bp,url_prefix='/waitinglist')
+		app.register_blueprint(patient_bp,url_prefix='/waitinglist/patient')    
+		app.register_blueprint(role_bp,url_prefix='/waitinglist/role')    
+		app.register_blueprint(unit_bp,url_prefix='/waitinglist/unit')    
+		app.register_blueprint(user_bp,url_prefix='/waitinglist/user')    
 	return app
 

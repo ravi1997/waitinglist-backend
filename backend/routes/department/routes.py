@@ -121,6 +121,7 @@ def update_department():
                 return jsonify({"message":"Department doesn't exist"}), 400
             else:
                 department = department_data
+                db.session.commit()
                 return jsonify({"message":"Department updated"}), 200
 
         except ValidationError as err:

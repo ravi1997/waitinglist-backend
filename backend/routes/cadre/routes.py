@@ -121,6 +121,7 @@ def update_cadre():
                 return jsonify({"message":"Cadre doesn't exist"}), 400
             else:
                 cadre = cadre_data
+                db.session.commit()
                 return jsonify({"message":"Cadre updated"}), 200
 
         except ValidationError as err:
