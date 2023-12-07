@@ -6,17 +6,27 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.extensions import db
 
+
+class PatientDemographic(db.Model):
+    __tablename__ = "patientdemographics"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fname: Mapped[str] = Column(String(255))
+    mname: Mapped[str] = Column(String(255))
+    lname: Mapped[str] = Column(String(255))
+    dob: Mapped[datetime] = mapped_column(datetime)
+    gender: Mapped[str] = Column(String(10))
+    phoneNo: Mapped[str] = Column(String(12))
+    phoneNo1: Mapped[str] = Column(String(12))
+    uhid: Mapped[str] = Column(String(50))
+
+
 class Patient(db.Model):
     __tablename__ = "patients"
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = Column(String(255))
-    age: Mapped[int] = Column(Integer)
-    gender: Mapped[str] = Column(String(10))
-    uhid: Mapped[str] = Column(String(50))
-    phoneNo: Mapped[str] = Column(String(15))
+    patientdemographic_id: Mapped[int] = mapped_column(ForeignKey('patientdemographics.id'))
     diagnosis: Mapped[str] = Column(String(255))
     plan: Mapped[str] = Column(String(255))
-    oneEyed: Mapped[str] = Column(String(10))
+    eye: Mapped[str] = Column(String(10))
     priority: Mapped[str] = Column(String(20))
     anesthesia: Mapped[str] = Column(String(50))
     cabin: Mapped[str] = Column(String(50))
@@ -28,4 +38,4 @@ class Patient(db.Model):
     remark: Mapped[str] = Column(String(255))
 
     def __repr__(self):
-        return f'Role({self.id}, "{self.name}")'
+        return f'Patient({self.id}, "{self.name}")'
